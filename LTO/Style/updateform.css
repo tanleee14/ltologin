@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(205, 240, 244);
+    height: 50vh;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+h2{
+    text-align: center;
+    padding-bottom: 30px;
+}
+h4{
+    text-align: center;
+}
+h5{
+    text-align: center;
+}
+
+hr{
+    margin: 0 auto;
+}
+
+.formbody {
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+    margin-top: 70px;
+}
+.form-panel{
+    padding-top: 100px;
+    width: 1350px;
+    height: 800px;
+    background-color: rgb(255, 255, 255);
+    border-radius:30px;
+    -webkit-box-shadow: 6.5px 16.5px 16.5px 8px #dddddd;
+    -moz-box-shadow: 6.5px 16.5px 16.5px 8px #dddddd;
+    box-shadow: 6.5px 16.5px 16.5px 8px #dddddd;
+    margin-bottom: 70px;
+    
+}
+.second-panel{
+    height: 1300px;
+}
+.third-panel{
+    height:700px ;
+
+}
+
+
+select#inputState option {
+    font-size: me; /* Change the font size as desired */
+}
+label{
+    font-size: medium;
+}
+.inputText {
+    padding: 20px;
+    /* You can add other styling for your inputText here */
+}
+.actionbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 30px;
+}
+.previous, .next {
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    text-align: center;
+    gap: 20px;
+}
+.submit{
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.previous {
+    background-color: #6c757d;
+}
+
+.form-panel:not(.active) {
+    display: none;
+    
+}
+.TOA{
+    margin-left: 30px;
+    margin-top: 50px;
+    font-size: large;
+    gap: 10px;
+}
+.containerbody{
+    width: 1000px;
+}
+.centered{
+    text-align: center;
+}
+table {
+    display: none;
+    text-align: center;
+    width: 20%;
+    border-collapse: collapse;
+    z-index: 10;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #ddd;
+}

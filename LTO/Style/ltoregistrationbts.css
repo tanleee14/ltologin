@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(205, 240, 244);
+    height: 80vh;
+}
+h2{
+    text-align: center;
+    padding-bottom: 30px;
+}
+h4{
+    text-align: center;
+}
+h5{
+    text-align: center;
+}
+
+hr{
+    margin: 0 auto;
+}
+
+.formbody {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 120px;
+}
+.form-panel{
+    padding-top: 100px;
+    width: 1350px;
+    height: 1400px;
+    background-color: rgb(255, 255, 255);
+    border-radius:30px;
+    -webkit-box-shadow: 6.5px 16.5px 16.5px 8px #dddddd;
+    -moz-box-shadow: 6.5px 16.5px 16.5px 8px #dddddd;
+    box-shadow: 6.5px 16.5px 16.5px 8px #dddddd;
+    
+}
+.second-panel{
+    height: 1300px;
+}
+.third-panel{
+    height:700px ;
+
+}
+
+
+select#inputState option {
+    font-size: me; /* Change the font size as desired */
+}
+label{
+    font-size: medium;
+}
+.inputText {
+    padding: 20px;
+    /* You can add other styling for your inputText here */
+}
+.actionbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    gap: 30px;
+}
+.previous, .next {
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    text-align: center;
+}
+.submit{
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.previous {
+    background-color: #6c757d;
+}
+
+.form-panel:not(.active) {
+    display: none;
+    
+}
+.TOA{
+    margin-left: 30px;
+    margin-top: 50px;
+    font-size: large;
+    gap: 10px;
+}
+.containerbody{
+    width: 1000px;
+}
+.centered{
+    text-align: center;
+}
