@@ -6,8 +6,8 @@ body {
     align-items: center;
     justify-content: end;
     height: 100%;
-    overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
 }
 
 .inputText {
@@ -96,6 +96,7 @@ align-items: center;
 background-color: #ffffff;
 width: auto;
 gap: 50px;
+z-index: 1;
 
 }
 

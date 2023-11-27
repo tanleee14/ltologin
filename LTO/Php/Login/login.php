@@ -46,7 +46,8 @@ sqlsrv_close($conn);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Login Page</title>
-    <link rel="stylesheet" href="../../Style/loginpagestyle.css">
+    <link rel="stylesheet" href="../../Style/login.css">
+
 </head>
 <body>
     <div class="wrapper">
@@ -56,24 +57,26 @@ sqlsrv_close($conn);
             <h6>We are so happy to have you here</h6>
             <p>Don't have an account?</p>
             <button class="signup"><a href="register.php">Signup</a></button>
+            
+            <button class="signup" onclick="toggleContainer()">Login here</button>
             </div>
         </div>
    
-    <div class="container">
+    <div id="container" class="container">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Land_Transportation_Office.svg/2048px-Land_Transportation_Office.svg.png" alt="Lto Logo">
         <form action="login.php" method="post">
             <h2>Login</h2>
             <div class="inputText">
               <div class="form-floating">
-                <input type="email" id="email" name="email" class="form-control" id="floatingInput" placeholder="Lastname">
-                <label for="floatingInput">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Lastname">
+                <label for="email">Email</label>
               </div>
               </div>
               
             <div class="inputText">
               <div class="form-floating">
-                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="password">
-                <label for="floatingInput">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="password">
+                <label for="password">Password</label>
               </div>
             </div>
             <button class="submit" type="submit">Login</button>
@@ -87,5 +90,22 @@ sqlsrv_close($conn);
         ?>
         </div>
     </div>
+    <script>
+    function toggleContainer() {
+    var container = document.getElementById("container");
+    var left = document.getElementsByClassName("left")[0]; // Access the first element with class 'left'
+    if (container.style.right === "0px") {
+        container.style.right = "-100%";
+     
+        container.style.zIndex = "1";
+        left.style.flexGrow = "1"; // Increase flex-grow when the container is off screen
+    } else {
+        container.style.right = "0px";
+        left.style.flexGrow = "0.7";
+        container.style.zIndex = "1"; 
+        container.style.backgroundColor = "white";// Reset flex-grow when the container is in view
+    }
+}
+    </script>
 </body>
 </html>

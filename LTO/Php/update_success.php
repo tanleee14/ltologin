@@ -154,7 +154,7 @@
         ?>
     </div>
     <div>
-        <button class="button"><a href="update_form.php">Proceed to login</a></button>
+        <button class="button"><a href="./Login/login.php">Proceed to login</a></button>
     </div>
 </body>
 </html>

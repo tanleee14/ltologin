@@ -70,7 +70,7 @@ if (sqlsrv_execute($sql2 )) {
     <script src="../Script/lto.js"></script>
     </head>
       <body>
-      <form class="formbody" method="POST" action="../Php/update_licensetype.php">
+      <form class="formbody" method="POST" action="update_licensetype.php">
       <div class="form-panel active first-panel">
       <div class="container mt-5 containerbody">
           <h4 class="mt-5"> TYPE OF APPLICATION(TOA)</h4>
@@ -207,8 +207,9 @@ if (sqlsrv_execute($sql2 )) {
               </div>
 
               <div class="button">
-              <input type="submit" name="submit"><a class="submit"  href="update_licensetype_success.php">See Updated Data</a></input>
-              </div> 
+            <input type="submit" class="submit" name="submit">
+            <a class="submit" name="submit" href="update_licensetype_success.php">See Updated Data</a>
+           </div>
           </form> 
       </div>
       </div>

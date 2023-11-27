@@ -30,59 +30,105 @@
 
 
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>User Data</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
-            table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-            th, td {
-                border: 1px solid black;
-                padding: 8px;
-                text-align: left;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-            tr:nth-child(even) {
-                background-color: #f9f9f9;
-            }
-            tr:hover {
-                background-color: #ddd;
-            }
-        </style>
-    </head>
-    <body>
-        <table>
-            <thead>
-                <tr>
-                    <th>LASTNAME</th>
-                    <th>FIRSTNAME</th>
-                    <th>MIDDLENAME</th>
-                    <th>STREET</th>
-                    <th>PROVINCE</th>
-                    <th>CITY</th>
-                    <th>CONTACT</th>
-                    <th>TIN</th>
-                    <th>NATIONALITY</th>
-                    <th>GENDER</th>
-                    <th>BIRTHDATE</th>
-                    <th>HEIGHT</th>
-                    <th>WEIGHT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                
-            while($rows = sqlsrv_fetch_array($results)){
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+         body, h1, p, div {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+       
+      
+        .container {
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 20px;
+        }
+
+        /* Header and Text */
+        h1, p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Row and Cell styling */
+        .row {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+        .row.header {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .row:hover:not(.header) {
+            background-color: #f8f8f8;
+        }
+        .cell {
+            flex: 1;
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Button Styling */
+        .button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
+        }   
+        a{
+            text-decoration: none;
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Success</h1>
+    <p>This is the updated Data</p>
+    <div class="container">
+        <div class="row header">
+            <div class="cell">LASTNAME</div>
+            <div class="cell">FIRSTNAME</div>
+            <div class="cell">MIDDLENAME</div>
+            <div class="cell">STREET</div>
+            <div class="cell">PROVINCE</div>
+            <div class="cell">CITY</div>
+            <div class="cell">CONTACT</div>
+            <div class="cell">TIN</div>
+            <div class="cell">NATIONALITY</div>
+            <div class="cell">GENDER</div>
+            <div class="cell">BIRTHDATE</div>
+            <div class="cell">HEIGHT</div>
+            <div class="cell">WEIGHT</div>
+        </div>
+        <?php
+            while($rows = sqlsrv_fetch_array($results)) {
                 $firstname = $rows['FIRSTNAME'];
                 $lastname = $rows['LASTNAME'];
                 $middlename = $rows['MIDDLENAME'];
@@ -92,38 +138,32 @@
                 $contact = $rows['CONTACT'];
                 $tin = $rows['TIN'];
                 $nationality = $rows['NATIONALITY'];
-                $gender = $rows['GENDER']; // Corrected from $rows('M') to $rows['GENDER']
+                $gender = $rows['GENDER'];
                 $bday = $rows['BIRTHDATE']->format('Y-m-d');
                 $height = $rows['HEIGHT'];
                 $weight = $rows['WEIGHT'];
 
-        
-            
-
-            echo '<tr>
-                <td>'.$lastname.'</td>
-                <td>'.$firstname.'</td>
-                <td>'.$middlename.'</td>
-                <td>'.$street.'</td>
-                <td>'.$province.'</td>
-                <td>'.$city.'</td>
-                <td>'.$contact.'</td>
-                <td>'.$tin.'</td>
-                <td>'.$nationality.'</td>
-                <td>'.$gender.'</td>
-                <td>'.$bday.'</td>
-                <td>'.$height.'</td>
-                <td>'.$weight.'</td>
-            </tr>';
+                echo '<div class="row">
+                        <div class="cell">'.$lastname.'</div>
+                        <div class="cell">'.$firstname.'</div>
+                        <div class="cell">'.$middlename.'</div>
+                        <div class="cell">'.$street.'</div>
+                        <div class="cell">'.$province.'</div>
+                        <div class="cell">'.$city.'</div>
+                        <div class="cell">'.$contact.'</div>
+                        <div class="cell">'.$tin.'</div>
+                        <div class="cell">'.$nationality.'</div>
+                        <div class="cell">'.$gender.'</div>
+                        <div class="cell">'.$bday.'</div>
+                        <div class="cell">'.$height.'</div>
+                        <div class="cell">'.$weight.'</div>
+                      </div>';
             }
-                ?>
-            </tbody>
-        </table>
-
-        <div>
-            <button><a href="update_form.php">Update Data</a></button>
-        </div>
-    
-
-    </body>
-    </html>
+        ?>
+    </div>
+    <div class = "buttons">
+        <button class="button"><a href="update_form.php">Update Data</a></button>
+        <button class="button"><a href="Login/login.php">Proceed to login</a></button>
+    </div>
+</body>
+</html>

@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $error_message = "Error inserting user: " . print_r(sqlsrv_errors(), true);
                 } else {
                     $success_message = "Registration successful! You can now log in.";
-                    header("location: ../../Login/admin.php");
+                    header("location: ../Login/login.php");
                 }
 
             }
@@ -79,7 +79,7 @@ sqlsrv_close($conn);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Login Page</title>
-    <link rel="stylesheet" href="../../Style/registerpagestyle.css">
+    <link rel="stylesheet" href="../../Style/register.css">
 </head>
 <body>
     <div class="wrapper">
@@ -87,38 +87,38 @@ sqlsrv_close($conn);
         
         </div>
    
-    <div class="container" style= "">
-        <form action="login.php" method="post">
+    <div class="container">
+        <form action="" method="post">
             <h2>Create An Account</h2>
             <div class="inputText">
               <div class="form-floating">
-                <input type="email" id="email" name="email" class="form-control" id="floatingInput" placeholder="Lastname">
+                <input type="email" id="email" name="email" class="form-control" id="floatingInput" placeholder="Email">
                 <label for="floatingInput">Email</label>
               </div>
               </div>
               
               <div class="inputText">
               <div class="form-floating">
-                <input type="text" id="firstname" name="firstname" class="form-control" id="floatingInput" placeholder="password">
+                <input type="text" id="firstname" name="firstname" class="form-control" id="floatingInput" placeholder="Firstname">
                 <label for="floatingInput">Firstname</label>
               </div>
             </div>
             <div class="inputText">
               <div class="form-floating">
-                <input type="text" id="lastname" name="lastname" class="form-control" id="floatingInput" placeholder="password">
+                <input type="text" id="lastname" name="lastname" class="form-control" id="floatingInput" placeholder="Lastname">
                 <label for="floatingInput">Lastname</label>
               </div>
             </div>
 
             <div class="inputText">
               <div class="form-floating">
-                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="password">
+                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="Password">
                 <label for="floatingInput">Password</label>
               </div>
             </div>
             <div class="inputText">
               <div class="form-floating">
-                <input type="password" id="repeatpassword" name="repeatPassword" class="form-control" id="floatingInput" placeholder="password">
+                <input type="password" id="repeatpassword" name="repeatPassword" class="form-control" id="floatingInput" placeholder="Confirm password">
                 <label for="floatingInput">Confirm Password</label>
               </div>
             </div>

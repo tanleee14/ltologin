@@ -64,15 +64,15 @@ if ($stmt === false) {
           <div class="row align-items-center justify-content-center">
             <div class="col-sm-3 inputText">
               <div class="form-floating">
-                <input type="text" id="Lastname" name="Lastname" class="form-control" id="floatingInput" placeholder="Lastname">
-                <label for="floatingInput">Lastname</label>
+                <input type="text" id="Lastname" name="Lastname" class="form-control" id="Lastname" placeholder="Lastname">
+                <label for="Lastname">Lastname</label>
               </div>
               </div>
               
             <div class="col-sm-3 inputText">
               <div class="form-floating">
-                <input type="text" id="Lastname" name="Firstname" class="form-control" id="floatingInput" placeholder="Firstname">
-                <label for="floatingInput">Firstname</label>
+                <input type="text" id="Lastname" name="Firstname" class="form-control" id="Firstname" placeholder="Firstname">
+                <label for="Firstname">Firstname</label>
               </div>
             </div>
       
@@ -167,7 +167,8 @@ if ($stmt === false) {
               </div>
             </div>
             <div class="button">
-            <a class="submit" name="submit" href="update_success.php">Submit and See Updated Data</a>
+            <input type="submit" class="submit">
+            <a class="submit" name="submit" href="update_success.php">See Updated Data</a>
            </div>
             </div>           
         </form>
