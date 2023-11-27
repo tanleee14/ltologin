@@ -1,4 +1,5 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $serverName = "LAPTOP-H96FD3CI\\SQLEXPRESS";
 $connectionOptions = [
     "Database" => "WEBAPP",
@@ -42,27 +43,19 @@ $e5 = isset($_POST['Education']) && $_POST['Education'] === '5' ? 1 : 0;
 $e6 = isset($_POST['Education']) && $_POST['Education'] === '6' ? 1 : 0;
 
 
+$sqlcall2 = "UPDATE CATEGORY_DETAILS 
+             SET A = ?, B = ?, C = ?, D = ?, E = ?, F = ?, G = ?, H = ?, I = ?, J = ?, K = ?, L = ?, M = ?, N = ? , L1 = ? , L2 = ? , L3 = ? , L4 = ? , D1 = ? , D2 = ? , E1 = ? , E2 = ? , E3 = ? , E4 = ? , E5 = ? , E6 = ? 
+             WHERE APPLICATIONID = IDENT_CURRENT('CATEGORY_DETAILS')"; // Replace 'some_condition' with your actual condition
+$params2 = array($a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $l1, $l2, $l3, $l4, $d1, $d2, $e1, $e2, $e3, $e4, $e5, $e6);
+$sql2 = sqlsrv_prepare($conn, $sqlcall2, $params2);
 
 
-// Update query
-$sql = "UPDATE CATEGORY_DETAILS SET A = ?, B = ?, C = ?, D = ?, E = ?, F = ?, G = ?, H = ?, I = ?, J = ?, K = ?, L = ?, M = ?, N = ?, L1 = ?, L2 = ?, L3 = ?, L4 = ?, D1 = ?, D2 = ?, E1 = ?, E2 = ?, E3 = ?, E4 = ?, E5 = ?, E6 = ? WHERE APPLICATIONID = IDENT_CURRENT('CATEGORY_DETAILS')";
-$params = array($a, $b, $c, $d, $e, $f, $g, $h, $i, $j, $k, $l, $m, $n, $l1, $l2, $l3, $l4, $d1, $d2, $e1, $e2, $e3, $e4, $e5, $e6); // Ensure $userId is defined and holds the ID of the user to update
-
-$stmt = sqlsrv_prepare($conn, $sql, $params);
-if ($stmt === false) {
-    die(print_r(sqlsrv_errors(), true));
-} 
-
-// Execute the prepared statement
-if(sqlsrv_execute($stmt) === false) {
-    die(print_r(sqlsrv_errors(), true));
+if (sqlsrv_execute($sql2 )) {
+    echo 'Registration success'."<br>"; 
+} else {
+    echo 'Error'."<br>";
 }
-
-$sourceQuery1 = "SELECT * FROM USERDATA WHERE USERID = IDENT_CURRENT('USERDATA')";
-$results = sqlsrv_query($conn, $sourceQuery1);
-
-
-
+}
 ?>
 
 <!DOCTYPE html>
@@ -77,81 +70,80 @@ $results = sqlsrv_query($conn, $sourceQuery1);
     <script src="../Script/lto.js"></script>
     </head>
       <body>
-      <form class="formbody" >
+      <form class="formbody" method="POST" action="../Php/update_licensetype.php">
       <div class="form-panel active first-panel">
       <div class="container mt-5 containerbody">
           <h4 class="mt-5"> TYPE OF APPLICATION(TOA)</h4>
-          <form class="row g-12 formbody" id="ltoregistration" method="post" action="../Php/update_licensetype.php">
+          <form class="row g-12 formbody" id="ltoregistration" >
             <div class="row d-flex justify-content-center TOA">
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="A" name="A" onclick="handleCheckboxes()">
+                        <input class="form-check-input" type="checkbox" value="NEW" id="A" name="A" onclick="handleCheckboxes()">
                         <label class="form-check-label" for="A">A.NEW</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="B" name="B">
+                        <input class="form-check-input" type="checkbox" value="DELINQUENT" id="B" name="B">
                         <label class="form-check-label" for="B">B.DELINQUENT/DORMANT LICENSE</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="C" name="C">
+                        <input class="form-check-input" type="checkbox" value="PROF TO NON PROF" id="C" name="C">
                         <label class="form-check-label" for="C">C.PROF TO NON-PROF</label>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="D" name="D">
+                        <input class="form-check-input" type="checkbox" value="NON PROF TO PROF" id="D" name="D">
                         <label class="form-check-label" for="D">D.NON-PROF TO PROF</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="E" name="E">
+                        <input class="form-check-input" type="checkbox" value="FOREIGN CONVERSION" id="E" name="E">
                         <label class="form-check-label" for="E">E.FOREIGN LIC.CONVERSION</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="F" name="F" onclick="handleCheckboxes()">
+                        <input class="form-check-input" type="checkbox" value="1" id="F" name="RENEWAL" onclick="handleCheckboxes()">
                         <label class="form-check-label" for="F">F.RENEWAL</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="G" name="G">
+                        <input class="form-check-input" type="checkbox" value="ADDITIONAL RESTRICTION CODE" id="G" name="G">
                         <label class="form-check-label" for="G">G.ADDITIONAL RESTRICTION CODE</label>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="H" name="H">
+                        <input class="form-check-input" type="checkbox" value="DUPLICATION" id="H" name="H">
                         <label class="form-check-label" for="H">H.DUPLICATION</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="I" name="I">
+                        <input class="form-check-input" type="checkbox" value="REVISION OF RECORDS" id="I" name="I">
                         <label class="form-check-label" for="I">I.REVISION OF RECORDS</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="J" name="J">
+                        <input class="form-check-input" type="checkbox" value="CHANGE OF ADDRESS" id="J" name="J">
                         <label class="form-check-label" for="J">J.CHANGE OF ADDRESS</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="K" name="K">
+                        <input class="form-check-input" type="checkbox" value="CHANGE CIVIL STATUS" id="K" name="K">
                         <label class="form-check-label" for="K">K.CHANGE CIVIL STATUS</label>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="L" name="L">
+                        <input class="form-check-input" type="checkbox" value="CHANGE NAME" id="L" name="L">
                         <label class="form-check-label" for="L">L.CHANGE NAME</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="M" name="M">
+                        <input class="form-check-input" type="checkbox" value="CHANGE DATE OF BIRTH" id="M" name="M">
                         <label class="form-check-label" for="M">M.CHANGE DATE OF BIRTH</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="N" name="N">
+                        <input class="form-check-input" type="checkbox" value="OTHERS" id="N" name="N">
                         <label class="form-check-label" for="N">N.OTHERS</label>
                     </div>
                 </div>
               </div>
-
               <div class="row d-flex justify-content-center TOA">
                 <div class="col">
                   <h6>TYPE OF LICENSE APPLIED FOR</h6>
@@ -172,6 +164,7 @@ $results = sqlsrv_query($conn, $sourceQuery1);
                     <label class="form-check-label" for="L4">4.CONDUCTOR</label>
                 </div>
                 </div>
+                
                 <div class="col">
                   <h6>DRIVING SKILLS AQUIRED</h6>
                   <div class="form-check">
@@ -212,13 +205,11 @@ $results = sqlsrv_query($conn, $sourceQuery1);
                   </div>
                 </div>
               </div>
+
               <div class="button">
-              <input type="submit" class="submit" id="submit" name="submit"></input>
-              <a class="submit" href="update_licensetype_success.php">See Updated Data</a>
-              </div>
-              
-          </form>
-          
+              <input type="submit" name="submit"><a class="submit"  href="update_licensetype_success.php">See Updated Data</a></input>
+              </div> 
+          </form> 
       </div>
       </div>
       </form>

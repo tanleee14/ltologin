@@ -4,11 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Container styling */
+        body {
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid white;
+            background: white;
+            width: 30%; 
+            height: 40%;/* Adjusted width */
+            padding: 20px;
+            border-radius:50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for better visibility */
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #4c74af; /* Blue background */
+            color: white; /* White text */
+            padding: 15px 32px; /* Padding */
+            text-align: center; /* Centered text */
+            display: inline-block;
+            font-size: 16px; /* Font size */
+            margin: 4px 2px;
+            cursor: pointer; /* Pointer cursor on hover */
+            border: none; /* No border */
+            border-radius: 10px; /* Rounded corners */
+            width: 40%;
+            transition: 0.4s ease-in-out;  /* Full width inside the container */
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: rgb(3, 32, 58);
+        }
+    </style>
 </head>
 <body>
-<button><a href="../Php/import.php">Review my Records</a></button>
-<button><a href="../Php/update_licensetype.php">Change my License Type</a></button>
 
+<div class="button-container">
+    <h1>Choose from the Following</h1>
+    <button><a href="../Php/import.php">Review my Records</a></button>
+    <button><a href="../Php/update_licensetype.php">Change my License Type</a></button>
+    <button><a href="../Php/Login/login.php">Proceed to login</a></button>
+</div>
 
 </body>
 </html>

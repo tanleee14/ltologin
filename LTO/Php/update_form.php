@@ -10,7 +10,6 @@ $conn = sqlsrv_connect($serverName, $connectionOptions);
         if ($conn == false) {
         die(print_r(sqlsrv_errors(), true));
         } else {
-        echo 'Connection Success'."<br>";
         }
 
 // Validate and sanitize user inputs
@@ -168,8 +167,7 @@ if ($stmt === false) {
               </div>
             </div>
             <div class="button">
-            <button type="submit" class="submit" id="submit" name="submit">Submit</button>
-            <a class="submit" href="update_success.php">Submit and See Updated Data</a>
+            <a class="submit" name="submit" href="update_success.php">Submit and See Updated Data</a>
            </div>
             </div>           
         </form>

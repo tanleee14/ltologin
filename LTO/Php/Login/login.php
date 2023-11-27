@@ -1,5 +1,5 @@
 <?php
-$serverName = "STANLEE\SQLEXPRESS";
+$serverName = "LAPTOP-H96FD3CI\\SQLEXPRESS";
 $connectionOptions = [
     "Database" => "WEBAPP",
     "Uid" => "",
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (sqlsrv_has_rows($login_result)) {
         // Successful login, redirect to homepage.html
-        header("Location: homepage.html");
+        header("Location: ../../Pages/Login/homepage.html");
         exit();
     } else {
         // Incorrect email or password
@@ -43,18 +43,41 @@ sqlsrv_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <title>Login Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../Style/loginpagestyle.css">
 </head>
 <body>
+    <div class="wrapper">
+        <div class="left">
+            <div class="content">
+            <h1 style="color:black">Welcome Back!</h1>
+            <h6>We are so happy to have you here</h6>
+            <p>Don't have an account?</p>
+            <button class="signup"><a href="register.php">Signup</a></button>
+            </div>
+        </div>
+   
     <div class="container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Land_Transportation_Office.svg/2048px-Land_Transportation_Office.svg.png" alt="Lto Logo">
         <form action="login.php" method="post">
             <h2>Login</h2>
-            <label for="email">Email:</label>
-            <input type="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" name="password" required>
-            <button type="submit">Login</button>
+            <div class="inputText">
+              <div class="form-floating">
+                <input type="email" id="email" name="email" class="form-control" id="floatingInput" placeholder="Lastname">
+                <label for="floatingInput">Email</label>
+              </div>
+              </div>
+              
+            <div class="inputText">
+              <div class="form-floating">
+                <input type="password" id="password" name="password" class="form-control" id="floatingInput" placeholder="password">
+                <label for="floatingInput">Password</label>
+              </div>
+            </div>
+            <button class="submit" type="submit">Login</button>
+            <p>Admin Login ? <a href="../Login/admin_verify.php" style="color:#2980b9">Login in here</a></p>   
         </form>
         <!-- Display error message for incorrect email or password -->
         <?php
@@ -62,8 +85,7 @@ sqlsrv_close($conn);
             echo "<p style='color: red;'>$errorMessage</p>";
         }
         ?>
-        <p>Don't have an account? <a href="register.php">Register here</a></p>
-        <p>Admin Login <a href="admin.php">Login in here</a></p>
+        </div>
     </div>
 </body>
 </html>
